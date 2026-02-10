@@ -61,8 +61,16 @@ def afficher_produits():
 
 #============================MISE A JOUR STOCK=============================================
 
-def update():
+def affiche_quantite_stock():
+    cursor = connection.cursor()
+    query = "select stocks.quantite, produits.nom from stocks inner join produits on produits.id = stocks.id;"
+    cursor.execute(query)
+    for row in cursor.fetchall():
+        print(row)
 
+
+def update():
+    affiche_quantite_stock()
     nom_produit = input("Entrez le nom du produit : ").strip()
 
     quantite_stock = input("Entrez la nouvelle quantite : ")
@@ -86,12 +94,14 @@ def update():
     cursor.execute(query, (quantite_stock, id_produit))
     connection.commit()
     print(f"Stock du produit '{nom_produit}' a été mis à jour à {quantite_stock}")
+    for row in cursor.fetchone():
+        print(row)
 
     cursor.close()
 #=============================RECHERCHE PRODUITS========================================
 
 def recherche():
-
+    afficher_produits()
     rechercher = input("Entrer nom prosuits a rechercher:")
     if not rechercher.isalpha():
         print("Erreur de saisie")
@@ -106,7 +116,7 @@ def recherche():
 #================================SUPPRIMER PRODUITS=========================================
 
 def supprimer():
-
+    afficher_produits()
     delete_pro = input("Entrez le nom du produits que vous voulais supprimer:")
     if not delete_pro.isalpha():
         print("Erreur de saisie")
@@ -116,6 +126,7 @@ def supprimer():
     query = "delete from produits where nom = %s"
     cursor.execute(query, (delete_pro,))
     connection.commit()
+    print(f"{delete_pro} est bien supprimer")
 
 #==============================DASHBOARD==================================================
 
