@@ -145,6 +145,25 @@ Authentification sécurisée (hash mot de passe)
 
 Gestion des rôles utilisateurs
 
+La table utilisateurs
+desc users;
++----------+----------------------+------+-----+---------+----------------+
+| Field    | Type                 | Null | Key | Default | Extra          |
++----------+----------------------+------+-----+---------+----------------+
+| id_user  | int                  | NO   | PRI | NULL    | auto_increment |
+| username | varchar(100)         | NO   |     | NULL    |                |
+| email    | varchar(100)         | NO   | UNI | NULL    |                |
+| password | varchar(100)         | NO   | UNI | NULL    |                |
+| role     | enum('admin','user') | YES  |     | user    |                |
++----------+----------------------+------+-----+---------+----------------+
+Les utilisateurs que j'ai ajouter
+ select * from users;
++---------+----------+-----------------+------------------------------------------------------------------+-------+
+| id_user | username | email           | password                                                         | role  |
++---------+----------+-----------------+------------------------------------------------------------------+-------+
+|       2 | Adama    | adama@gmail.com | 1fccc7a2ffb2c5cdc6ed0f5c2aef5a287cae786d896d541fd24de8ae6aa14654 | user  |
+|       3 | Aicha    | aicha@gmail.com | 33a3b725f9c3697cd6a3edae0a245e5b40568b65ad33ca4e4b2402ce6bbdd230 | admin |
++---------+----------+-----------------+------------------------------------------------------------------+-------+
 
 
 
