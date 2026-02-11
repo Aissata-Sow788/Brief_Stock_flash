@@ -130,7 +130,20 @@ Pour la mise à jour, pour mettre à jour la quantité dans la table Stock et qu
 id_produits = resultat[0]
 ici resultat[0] il permet l’extraction de l’id du produit sur résultat = cursor.fetchone  qui récupère une seule ligne du résultat  le résultat sera en tuple 
 
+On a ajouter l'authentification des utilisateurs 
+La gestion des utilisateurs (inscription / connexion)
 
+L’attribution des rôles (admin / user)
+
+Ce projet met en pratique :
+
+Manipulation de bases de données relationnelles
+
+Logique métier
+
+Authentification sécurisée (hash mot de passe)
+
+Gestion des rôles utilisateurs
 
 
 
